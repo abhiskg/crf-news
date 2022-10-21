@@ -11,7 +11,7 @@ const Root = () => {
       <Navbar />
       <Container>
         <Row>
-          <Col lg="2">
+          <Col className="d-none d-lg-block" lg="2">
             <LeftSideNav />
           </Col>
           <Col lg="7">
