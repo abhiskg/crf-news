@@ -1,3 +1,4 @@
+import { z } from "zod";
 export interface newsDataType {
   _id: string;
   others_info: {
@@ -18,3 +19,26 @@ export interface newsDataType {
   image_url: string;
   details: string;
 }
+
+const newsValidator = z
+  .object({
+    _id: z.string(),
+    others_info: z.object({
+      is_todays_pick: z.boolean(),
+      is_trending: z.boolean(),
+    }),
+    category_id: z.string(),
+    rating: z.object({ number: z.number(), badge: z.string() }),
+
+    total_view: z.number(),
+    title: z.string(),
+    author: z.object({
+      name: z.string(),
+      published_date: z.string(),
+      img: z.string(),
+    }),
+    thumbnail_url: z.string(),
+    image_url: z.string(),
+    details: z.string(),
+  })
+  .array();
